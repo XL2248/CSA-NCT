@@ -9,21 +9,21 @@ data_dir=path_to_data_file
 export PYTHONPATH=$work_dir/$code_dir:$PYTHONPATH
 python $work_dir/$code_dir/thumt/bin/trainer.py \
   --model transformer \
-  --output $work_dir/train_en_de_base_model_bottom${bb}_ctx${ctx_ind}_end2end \
-  --input $data_dir/train.tok.bpe.32000.en $data_dir/train.tok.bpe.32000.de \
-  --vocabulary $vocab_data_dir/ende.bpe32k.vocab4.txt $vocab_data_dir/ende.bpe32k.vocab4.txt \
-  --validation $data_dir/dev.tok.bpe.32000.en \
-  --references $data_dir/dev.tok.de \
-  --dialog_src_context $data_dir/train_ctx.tok.bpe.32000.en \
-  --dialog_tgt_context $data_dir/train_ctx.tok.bpe.32000.de \
-  --style_src_context $data_dir/train_enper_ctx.tok.bpe.32000.en \
-  --style_tgt_context $data_dir/train_deper_ctx.tok.bpe.32000.de \
-  --language_src_context $data_dir/train_ctx.tok.bpe.32000.en \
-  --language_tgt_context $data_dir/train_ctx.tok.bpe.32000.de \
-  --dev_dialog_src_context $data_dir/dev_ctx.tok.bpe.32000.en \
-  --dev_dialog_tgt_context $data_dir/dev_ctx.tok.bpe.32000.de \
-  --dev_style_src_context $data_dir/dev_enper_ctx.tok.bpe.32000.en \
-  --dev_style_tgt_context $data_dir/dev_deper_ctx.tok.bpe.32000.de \
-  --dev_language_src_context $data_dir/dev_ctx.tok.bpe.32000.en \
-  --dev_language_tgt_context $data_dir/dev_ctx.tok.bpe.32000.de \
+  --output $work_dir/models/$model_name \
+  --input $train_data/train_bpe.32k.${src} $train_data/train_bpe.32k.${tgt} \
+  --vocabulary $vocab_data_dir/ende.bpe32k.vocab4.txt $vocab_data_dir/ende.bpe32k.vocab4.txt $vocab_data_dir/position.txt \
+  --validation $data_dir/dev_bpe.32k.${src} \
+  --references $data_dir/dev.tok.${tgt} \
+  --context_source $data_dir/train_ctx_src_bpe.32k.${src} \
+  --dialog_src_context $train_data/train_ctx_bpe.32k.${src} \
+  --dialog_tgt_context $train_data/train_ctx_bpe.32k.${tgt} \
+  --style_src_context $train_data/train_ctx_bpe.32k.${src} \
+  --style_tgt_context $train_data/train_ctx_bpe.32k.${tgt} \
+  --sample $train_data/train_bpe.32k.${tgt} \
+  --dev_context_source $data_dir/dev_ctx_src_bpe.32k.${src} \
+  --dev_dialog_src_context $data_dir/dev_ctx_bpe.32k.${src} \
+  --dev_dialog_tgt_context $data_dir/dev_ctx_bpe.32k.${tgt} \
+  --dev_style_src_context $data_dir/dev_ctx_bpe.32k.${src} \
+  --dev_style_tgt_context $data_dir/dev_ctx_bpe.32k.${tgt} \
+  --dev_sample $data_dir/dev_bpe.32k.${tgt} \
   --parameters=device_list=[0,1,2,3],update_cycle=1,eval_steps=50,train_steps=1,batch_size=4096,max_length=128,constant_batch_size=False,residual_dropout=0.1,attention_dropout=0.1,relu_dropout=0.1,shared_source_target_embedding=True,learning_rate=1.0,start_steps=1,bottom_block=$bb,use_crg=True,use_mrg=True,use_speaker=True,use_coherence=True,kl_annealing_steps=$kl_steps1,kl_annealing_steps2=$kl_steps2
