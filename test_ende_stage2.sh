@@ -21,13 +21,12 @@ do
         --checkpoints $work_dir/$checkpoint_dir \
         --input $data_dir/"$data_name".tok.bpe.32000.en \
         --output $data_dir/"$data_name".out.de.${idx} \
-        --vocabulary $vocab_data_dir/ende.bpe32k.vocab4.txt $vocab_data_dir/ende.bpe32k.vocab4.txt \
+        --vocabulary $vocab_data_dir/ende.bpe32k.vocab4.txt $vocab_data_dir/ende.bpe32k.vocab4.txt $vocab_dir/position.txt \
         --dev_dialog_src_context $data_dir/"$data_name"_ctx.tok.bpe.32000.en \
         --dev_dialog_tgt_context $data_dir/"$data_name"_ctx.tok.bpe.32000.de \
         --dev_style_src_context $data_dir/"$data_name"_enper_ctx.tok.bpe.32000.en \
         --dev_style_tgt_context $data_dir/"$data_name"_deper_ctx.tok.bpe.32000.de \
-        --dev_language_src_context $data_dir/"$data_name"_ctx.tok.bpe.32000.en \
-        --dev_language_tgt_context $data_dir/"$data_name"_ctx.tok.bpe.32000.de \
+        --dev_sample $data_dir/"$data_name"_bpe.32k.en \
         --parameters=decode_batch_size=64
     echo evaluating with checkpoint-$idx
     chmod 777 -R $data_dir
