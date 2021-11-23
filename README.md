@@ -7,7 +7,7 @@ The following steps are training our model and then test its performance in term
 
 ## Data Preprocessing
 Please refer to the "data_preprocess_code" file.
-
+The data we used in this paper are [BConTrasT](https://github.com/Unbabel/BConTrasT) and [BMELD](https://github.com/XL2248/CPCC).
 ## Two-stage Training
 
 + The first stage
