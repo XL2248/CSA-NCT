@@ -1,7 +1,7 @@
 # CSA-NCT
 Code for EMNLP21 main conference paper: Towards Making the Most of Dialogue Characteristics for Neural Chat Translation
 
-# Training (Take En->De as an example)
+# Training (Taking En->De as an example)
 Our code is basically based on the publicly available toolkit: [THUMT-Tensorflow](https://github.com/THUNLP-MT/THUMT) (our python version 3.6).
 The following steps are training our model and then test its performance in terms of BLEU, TER, and Sentence Similarity.
 
