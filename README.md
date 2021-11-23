@@ -1,5 +1,5 @@
 # CSA-NCT
-Code for EMNLP21 main conference paper: Towards Making the Most of Dialogue Characteristics for Neural Chat Translation
+Code for EMNLP21 main conference paper: [Towards Making the Most of Dialogue Characteristics for Neural Chat Translation](https://aclanthology.org/2021.emnlp-main.6/)
 
 # Training (Taking En->De as an example)
 Our code is basically based on the publicly available toolkit: [THUMT-Tensorflow](https://github.com/THUNLP-MT/THUMT) (our python version 3.6).
@@ -25,7 +25,7 @@ Please refer to the "data_preprocess_code" file.
 + Test by multi-blue.perl
 
 ```
-5) 5) bash test_ende_stage2.sh # set the checkpoint file path to path4 in this script. # Suppose the predicted file is located in path5 at checkpoint step xxxxx
+5) bash test_ende_stage2.sh # set the checkpoint file path to path4 in this script. # Suppose the predicted file is located in path5 at checkpoint step xxxxx
 ```
 + Test by SacreBLEU and TER
 Required TER: v0.7.25; Sacre-BLEU: version.1.4.13 (BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.13)
