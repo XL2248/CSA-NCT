@@ -6,7 +6,7 @@ Our code is basically based on the publicly available toolkit: [THUMT-Tensorflow
 The following steps are training our model and then test its performance in terms of BLEU, TER, and Sentence Similarity.
 
 ## Data Preprocessing
-Please refer to the "data_preprocess_code" file （coming soon）.
+Please refer to the "data_preprocess_code" file.
 
 ## Two-stage Training
 
